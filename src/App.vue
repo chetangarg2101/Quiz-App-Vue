@@ -145,7 +145,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding: 8rem;
-	height: 200vh;
+	height: 100vh;
 }
 
 h1 {
