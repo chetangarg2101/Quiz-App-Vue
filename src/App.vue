@@ -129,117 +129,254 @@ const NextQuestion = () => {
 
 <style>
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
-	background-color: #271c36;
-	color: #FFF;
+  background-color: #f0f4f8; /* Light background for a fresh look */
+  color: #333333; /* Dark text for readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevent unnecessary scrollbars */
 }
 
 .app {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 8rem;
-	height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px; /* Increased max-width for a larger container */
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background for the quiz container */
 }
 
 h1 {
-	font-size: 2rem;
-	margin-bottom: 2rem;
-}
-
-.quiz {
-	background-color: #382a4b;
-	padding: 1rem;
-	width: 250%;
-	max-width: 1280px;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #ff6f61; /* Vibrant coral color for the title */
 }
 
 .quiz-info {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically */
+  width: 100%;
+  margin-bottom: 2rem;
+  gap: 1rem; /* Add gap between question and score */
 }
 
 .quiz-info .question {
-	color: #8F8F8F;
-	font-size: 1.25rem;
+  color: #ff6f61; /* Consistent accent color for questions */
+  font-size: 1.75rem;
 }
 
-.quiz-info.score {
-	color: #FFF;
-	font-size: 1.25rem;
+.quiz-info .score {
+  color: #333333; /* Consistent text color */
+  font-size: 1.75rem;
 }
 
 .options {
-	margin-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .option {
-	padding: 1rem;
-	display: block;
-	background-color: #271c36;
-	margin-bottom: 0.5rem;
-	border-radius: 0.5rem;
-	cursor: pointer;
+  padding: 1rem;
+  display: block;
+  background-color: #e0e7ff; /* Soft blue for options */
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .option:hover {
-	background-color: #2d213f;
+  background-color: #c7d2fe; /* Slightly darker blue on hover */
 }
 
 .option.correct {
-	background-color: #2cce7d;
+  background-color: #28a745; /* Green for correct answers */
 }
 
 .option.wrong {
-	background-color: #ff5a5f;
-}
-
-.option:last-of-type {
-	margin-bottom: 0;
+  background-color: #dc3545; /* Red for wrong answers */
 }
 
 .option.disabled {
-	opacity: 0.5;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .option input {
-	display: none;
+  display: none;
 }
 
 button {
-	appearance: none;
-	outline: none;
-	border: none;
-	cursor: pointer;
-	padding: 0.5rem 1rem;
-	background-color: #2cce7d;
-	color: #2d213f;
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 1.2rem;
-	border-radius: 0.5rem;
+  appearance: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  background-color: #ff6f61; /* Accent color for buttons */
+  color: #ffffff; /* White text for contrast */
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #e65b54; /* Slightly darker coral on hover */
 }
 
 button:disabled {
-	opacity: 0.5;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 h2 {
-	font-size: 2rem;
-	margin-bottom: 2rem;
-	text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ff6f61; /* Accent color for headings */
 }
 
 p {
-	color: #8F8F8F;
-	font-size: 1.5rem;
-	text-align: center;
+  color: #666666; /* Medium gray for secondary text */
+  font-size: 1.5rem;
+  text-align: center;
+}* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #f0f4f8; /* Light background for a fresh look */
+  color: #333333; /* Dark text for readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0; /* Ensure no default margin */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px; /* Increased max-width for a larger container */
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background for the quiz container */
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #ff6f61; /* Vibrant coral color for the title */
+}
+
+.quiz-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  gap: 1rem; /* Add gap between question and score */
+}
+
+.quiz-info .question {
+  color: #ff6f61; /* Consistent accent color for questions */
+  font-size: 1.75rem;
+}
+
+.quiz-info .score {
+  color: #333333; /* Consistent text color */
+  font-size: 1.75rem;
+}
+
+.options {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.option {
+  padding: 1rem;
+  display: block;
+  background-color: #e0e7ff; /* Soft blue for options */
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: #c7d2fe; /* Slightly darker blue on hover */
+}
+
+.option.correct {
+  background-color: #28a745; /* Green for correct answers */
+}
+
+.option.wrong {
+  background-color: #dc3545; /* Red for wrong answers */
+}
+
+.option.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.option input {
+  display: none;
+}
+
+button {
+  appearance: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  background-color: #ff6f61; /* Accent color for buttons */
+  color: #ffffff; /* White text for contrast */
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #e65b54; /* Slightly darker coral on hover */
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ff6f61; /* Accent color for headings */
+}
+
+p {
+  color: #666666; /* Medium gray for secondary text */
+  font-size: 1.5rem;
+  text-align: center;
 }
 </style>
